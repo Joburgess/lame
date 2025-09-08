@@ -1130,8 +1130,8 @@ vbrpsy_compute_masking_s(lame_internal_flags * gfc, const FLOAT(*fftenergy_s)[HB
             thr[b] *= masking_lower;
         }
 
-        if (thr[b] < 0 || isnan(thr[b])) {
-            thr[b] = 0;
+        if (thr[b] < 0) {
+            thr[b] = -thr[b];
         }
     }
     for (; b < CBANDS; ++b) {
@@ -1263,8 +1263,8 @@ vbrpsy_compute_masking_l(lame_internal_flags * gfc, const FLOAT fftenergy[HBLKSI
         if (masking_lower < 1) {
             thr[b] *= masking_lower;
         }
-        if (thr[b] < 0 || isnan(thr[b])) {
-            thr[b] = 0;
+        if (thr[b] < 0) {
+            thr[b] = -thr[b];
         }
     }
     for (; b < CBANDS; ++b) {
