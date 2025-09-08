@@ -384,9 +384,6 @@ convert_partition2scalefac(PsyConst_CB2SB_t const *const gd, FLOAT const *eb, FL
             break;
         }
         assert(eb[b] >= 0); /* iff failed, it may indicate some index error elsewhere */
-        if (thr[b] < 0 || isnan(thr[b])) {
-            thr[b] = 0;
-        }
         {
             /* at transition sfb -> sfb+1 */
             FLOAT const w_curr = gd->bo_weight[sb];
