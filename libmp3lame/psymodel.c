@@ -370,9 +370,6 @@ convert_partition2scalefac(PsyConst_CB2SB_t const *const gd, FLOAT const *eb, FL
         int const b_lim = bo_sb < npart ? bo_sb : npart;
         while (b < b_lim) {
             assert(eb[b] >= 0); /* iff failed, it may indicate some index error elsewhere */
-            if (thr[b] < 0 || isnan(thr[b])) {
-                thr[b] = 0;
-            }
             enn += eb[b];
             thmm += thr[b];
             b++;
