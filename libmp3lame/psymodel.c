@@ -1132,7 +1132,9 @@ vbrpsy_compute_masking_s(lame_internal_flags * gfc, const FLOAT(*fftenergy_s)[HB
             thr[b] *= masking_lower;
         }
 
-        assert(thr[b] >= 0);
+        if (thr[b] < 0 || isnan(thr[b])) {
+            thr[b] = 0;
+        }
     }
     for (; b < CBANDS; ++b) {
         eb[b] = 0;
